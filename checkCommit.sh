@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-USERNAME="$0"
+USERNAME="$1"
 
 TODAY=$(date -u +"%Y-%m-%d")
 
