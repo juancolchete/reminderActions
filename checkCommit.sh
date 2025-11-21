@@ -1,11 +1,6 @@
 #!/usr/bin/env bash
 
-USERNAME="${1:-YOUR_USERNAME}"
-
-if [ "$USERNAME" = "YOUR_USERNAME" ]; then
-  echo "Usage: $0 <github-username>"
-  exit 1
-fi
+USERNAME="$0"
 
 TODAY=$(date -u +"%Y-%m-%d")
 
