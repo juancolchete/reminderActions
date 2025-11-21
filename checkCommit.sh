@@ -17,5 +17,5 @@ if [ "$COUNT" -gt 0 ]; then
   echo "✅ Yes! You committed today ($COUNT push events)."
 else
   echo "❌ No commits found for today ($TODAY)."
-  curl --location '$2' --header 'Content-Type: application/json' --data '{"content":"Today I will say some words of Ancient Gods"}'
+  curl --location '$2' --header 'Content-Type: application/json' --data '{"content":"You need to commit soon of a bich"}'
 fi
