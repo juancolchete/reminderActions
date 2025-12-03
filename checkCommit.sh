@@ -2,7 +2,7 @@
 
 USERNAME="$1"
 
-TODAY=$(date -u +"%Y-%m-%d")
+TODAY=$(date -u +"%Y-%m-%d" -d "-3 hours")
 
 # Fetch your most recent events (public only)
 EVENTS=$(curl -s "https://api.github.com/users/$USERNAME/events")
