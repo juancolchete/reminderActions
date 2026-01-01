@@ -14,7 +14,7 @@ COUNT=$(echo "$EVENTS" \
     ')
 
 if [ "$COUNT" -lt 14 ]; then
-  curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missingv '"$(( 14 - COUNT))"' commits"}'
+  curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missing '"$(( 14 - COUNT))"' commits"}'
 elif [ "$COUNT" -gt 0 ]; then
   echo "✅ Yes! You committed today ($COUNT push events)."
 else
