@@ -13,8 +13,8 @@ COUNT=$(echo "$EVENTS" \
       map(select(.type=="PushEvent" and (.created_at | startswith($TODAY)))) | length
     ')
 
-if [ "$COUNT" -lt 14 ]; then
-  curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missing '"$(( 14 - COUNT))"' commits"}'
+if [ "$COUNT" -lt $3 ]; then
+  curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missing '"$(( $3 - COUNT))"' commits"}'
 elif [ "$COUNT" -gt 0 ]; then
   echo "✅ Yes! You committed today ($COUNT push events)."
 else
