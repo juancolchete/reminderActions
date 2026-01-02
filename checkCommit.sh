@@ -16,11 +16,12 @@ COMMIT_META=$(($3 - COUNT))
 echo "" > dailyCommit.md
 echo "# Daily commitment info" >> dailyCommit.md
 echo "Total commited today: $COUNT" >> dailyCommit.md
-echo "Total to commit: $(( [[ $COMMIT_META > 0 ]] && $COMMIT_META || $COUNT ))" >> dailyCommit.md
 
 if [ "$COUNT" -lt $3 ]; then
   curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missing '"$COMMIT_META"' commits"}'
+  echo "Total to commit: 0" >> dailyCommit.md
 elif [ "$COUNT" -gt 0 ]; then
+  echo "Total to commit: $(( [[ $COMMIT_META > 0 ]] && $COMMIT_META || $COUNT ))" >> dailyCommit.md
   echo "✅ Yes! You committed today ($COUNT push events)."
 else
   echo "❌ No commits found for today ($TODAY)."
