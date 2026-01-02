@@ -19,9 +19,9 @@ echo "Total commited today: $COUNT" >> dailyCommit.md
 
 if [ "$COUNT" -lt $3 ]; then
   curl --location "$2" --header 'Content-Type: application/json' --data '{"content":"<@464919571304939520> Missing '"$COMMIT_META"' commits"}'
-  echo "Total to commit: 0" >> dailyCommit.md
-elif [ "$COUNT" -gt 0 ]; then
   echo "Total to commit: $COMMIT_META" >> dailyCommit.md
+elif [ "$COUNT" -gt 0 ]; then
+  echo "Total to commit: 0" >> dailyCommit.md
   echo "✅ Yes! You committed today ($COUNT push events)."
 else
   echo "Total to commit: $COMMIT_META" >> dailyCommit.md
