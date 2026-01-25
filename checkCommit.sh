@@ -10,7 +10,7 @@ EVENTS=$(curl -s "https://raw.githubusercontent.com/ColcheteDAO/streakCounter/ma
 # Count PushEvents from today
 COUNT=$(echo "$EVENTS" \
   | jq --arg TODAY "$TODAY" '
-      .[] | select(.date < $TODAY) | .contributionCount
+      .[] | select(.date = $TODAY) | .contributionCount
     ')
 echo $COUNT
 # COMMIT_META=$(($3 - COUNT))
