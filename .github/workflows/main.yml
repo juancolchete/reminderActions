@@ -5,8 +5,7 @@ on:
   workflow_dispatch:
 jobs:
   calculteUserStreak:
-    uses: ColcheteDAO/streakCounter/.github/workflows/saveContributionCountPerDay.yml@main
-    #uses: colchetedao/actionPlayground/.github/workflows/workflow-called.yml@main
+    uses: colchetedao/streakCounter/.github/workflows/saveContributionCountPerDay.yml@main
     secrets: inherit
   build:
     environment:
