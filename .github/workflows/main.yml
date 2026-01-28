@@ -1,13 +1,14 @@
 name: CI
 on:
   schedule:
-    - cron: "* 12-23 * * *"
+    - cron: "0,30 12-23 * * *"
   workflow_dispatch:
 jobs:
   calculteUserStreak:
     uses: colchetedao/streakCounter/.github/workflows/saveContributionCountPerDay.yml@main
     secrets: inherit
-  build:
+  reminderUser:
+    needs: [calculteUserStreak]
     environment:
       name: ${{ github.ref_name }}
     runs-on: ubuntu-latest
@@ -19,11 +20,12 @@ jobs:
       - name: Upload to git
         id: uploadGit
         run: |
+          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
           if [[ `git status --porcelain` ]]; then
             git config --global user.name "juancolchete"
             git config --global user.email "juancolchete@gmail.com"
             git add . 
-            git commit -m "file: ${{github.event.head_commit.message}}"
+            git commit -m "upload: $LAST_COMMIT_MSG"
             git push
           else
             echo "no changes to push"
