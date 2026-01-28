@@ -1,4 +1,4 @@
-name: CI
+name: Reminder user to commit
 on:
   schedule:
     - cron: "0,30 12-23 * * *"
