@@ -1,4 +1,4 @@
-name: CI
+name: Sync commit data
 on:
   schedule:
     - cron: "20,50 11-23 * * *"
