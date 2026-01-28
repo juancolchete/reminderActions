@@ -9,13 +9,6 @@ jobs:
       name: ${{ github.ref_name }}
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Remote Workflow
-        run: |
-          curl -X POST \
-          -H "Authorization: token ${{ secrets.PAT }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/colchetedao/streakCounter/actions/workflows/saveContributionCountPerDay.yml/dispatches \
-          -d '{"ref":"main"}'
       - uses: actions/checkout@v4
       - name: Run a multi-line script
         run: |
