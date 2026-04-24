@@ -15,14 +15,6 @@ jobs:
           bash checkCommit.sh ${{  vars.GIT_USER }} ${{ secrets.WEBHOOK_URL }} ${{ vars.MIN_DAILY_COMMIT_COUNT }}
       - name: Upload to git
         id: uploadGit
+        shell: bash
         run: |
-          LAST_COMMIT_MSG=$(git log -1 --pretty=%B)
-          if [[ `git status --porcelain` ]]; then
-            git config --global user.name "juancolchete"
-            git config --global user.email "juancolchete@gmail.com"
-            git add . 
-            git commit -m "upload: $LAST_COMMIT_MSG"
-            git push
-          else
-            echo "no changes to push"
-          fi
+          curl -s https://raw.githubusercontent.com/juancolchete/utils/main/gitUpload.sh | bash /dev/stdin ${{ vars.GIT_UPLOAD_PARAMS }} "bot: ${{ github.workflow }}"
