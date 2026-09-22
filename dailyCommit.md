@@ -1,4 +1,4 @@
 
 # Daily commitment info
-Total commited today: 14
-Total to commit: 0
+Total commited today: 2
+Total to commit: 12
